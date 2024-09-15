@@ -26,6 +26,8 @@ function MyState(props) {
     //* getAllBlog State 
     const [getAllBlog, setGetAllBlog] = useState([]);
 
+    const [getAllCategory, setGetAllCategory] = useState([]);
+
     //* getAllBlogs Function
     function getAllBlogs() {
         setloading(true);
@@ -51,8 +53,33 @@ function MyState(props) {
         }
     }
 
+    function getAllCategories() {
+        setloading(true);
+        try {
+            const q = query(
+                collection(fireDb, "availableCategories"),
+                orderBy('time')
+            );
+            const data = onSnapshot(q, (QuerySnapshot) => {
+                let categoriesArray = [];
+                QuerySnapshot.forEach((doc) => {
+                    categoriesArray.push({ ...doc.data(), id: doc.id });
+                });
+
+                setGetAllCategory(categoriesArray)
+                console.log(categoriesArray)
+                setloading(false)
+            });
+            return () => data;
+        } catch (error) {
+            console.log(error)
+            setloading(false)
+        }
+    }
+
     useEffect(() => {
         getAllBlogs();
+        getAllCategories();
     }, []);
 
     // Blog Delete Function 
@@ -74,6 +101,7 @@ function MyState(props) {
             loading,
             setloading,
             getAllBlog,
+            getAllCategory,
             deleteBlogs
         }}>
             {props.children}

@@ -14,6 +14,7 @@ import Dashboard from "./pages/admin/dashboard/Dashboard";
 import MyState from "./context/data/myState";
 import CreateBlog from "./pages/admin/createBlog/CreateBlog";
 import { Toaster } from "react-hot-toast";
+import CreateCategory from "./pages/admin/createCategories/CreateCategories";
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
           <Route path="/createblog" element={
             <ProtectedRouteForAdmin>
               <CreateBlog />
+            </ProtectedRouteForAdmin>
+          } />
+          <Route path="/createCategory" element={
+            <ProtectedRouteForAdmin>
+              <CreateCategory />
             </ProtectedRouteForAdmin>
           } />
           <Route path="/*" element={<NoPage />} />

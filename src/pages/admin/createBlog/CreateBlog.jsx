@@ -13,7 +13,7 @@ import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { fireDb, storage } from '../../../firebase/FirebaseConfig';
 function CreateBlog() {
     const context = useContext(myContext);
-    const { mode } = context;
+    const { getAllCategory, mode } = context;
 
     const navigate = useNavigate();
 
@@ -163,8 +163,9 @@ function CreateBlog() {
                 </div>
 
                 {/* Third Category Input  */}
+                <div>Select yout Category</div>
                 <div className="mb-3">
-                    <input
+                    {/* <input
                         label="Enter your Category"
                         className={`shadow-[inset_0_0_4px_rgba(0,0,0,0.6)] w-full rounded-md p-1.5 
                  outline-none ${mode === 'dark'
@@ -180,7 +181,16 @@ function CreateBlog() {
                         onChange={(e) => setBlogs({ ...blogs, category: e.target.value })} 
                         value={blogs.category} 
 
-                    />
+                    /> */}
+                    <div className="relative w-full lg:max-w-sm">
+            <select 
+            onChange={(e) => setBlogs({ ...blogs, category: e.target.value })} 
+            className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                {getAllCategory.map((category) => (
+                    <option>{category.category}</option>
+                ))}
+            </select>
+        </div>
                 </div>
 
                 {/* Four Editor  */}

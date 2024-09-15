@@ -43,8 +43,9 @@ function Dashboard() {
                         {/* <h2 style={{ color: mode === 'dark' ? 'white' : 'black' }} className="font-semibold">
                             <span>Total Blog : </span> 15
                         </h2> */}
+                        
                         <div className="flex gap-2 mt-2">
-                            <Link to={'/createblog'}>
+                        <Link to={'/createblog'}>
                                 <div className="mb-2">
                                     <Button
                                         style={{
@@ -54,6 +55,19 @@ function Dashboard() {
                                         className="px-8 py-2"
                                     >
                                         Create Blog
+                                    </Button>
+                                </div>
+                            </Link>
+                            <Link to={'/createCategory'}>
+                                <div className="mb-2">
+                                    <Button
+                                        style={{
+                                            background: mode === 'dark' ? 'rgb(226, 232, 240)' : 'rgb(30, 41, 59)',
+                                            color: mode === 'dark' ? 'black' : 'white',
+                                        }}
+                                        className="px-8 py-2"
+                                    >
+                                        Create Category
                                     </Button>
                                 </div>
                             </Link>

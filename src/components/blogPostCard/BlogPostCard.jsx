@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router';
 
 function BlogPostCard() {
   const context = useContext(myContext);
-  const { mode, getAllBlog } = context;
-
+  const { mode, getAllBlog, getAllCategory } = context;
+  console.log(getAllCategory)
+  console.log(getAllBlog)
   const navigate = useNavigate();
 
   return (
