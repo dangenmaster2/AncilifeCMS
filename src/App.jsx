@@ -15,6 +15,7 @@ import MyState from "./context/data/myState";
 import CreateBlog from "./pages/admin/createBlog/CreateBlog";
 import { Toaster } from "react-hot-toast";
 import CreateCategory from "./pages/admin/createCategories/CreateCategories";
+import CreateQuote from "./pages/admin/createQuote/CreateQuote";
 
 function App() {
   return (
@@ -40,6 +41,11 @@ function App() {
           <Route path="/createCategory" element={
             <ProtectedRouteForAdmin>
               <CreateCategory />
+            </ProtectedRouteForAdmin>
+          } />
+          <Route path="/createQuote" element={
+            <ProtectedRouteForAdmin>
+              <CreateQuote />
             </ProtectedRouteForAdmin>
           } />
           <Route path="/*" element={<NoPage />} />

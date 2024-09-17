@@ -186,8 +186,8 @@ function CreateBlog() {
             <select 
             onChange={(e) => setBlogs({ ...blogs, category: e.target.value })} 
             className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
-                {getAllCategory.map((category) => (
-                    <option>{category.category}</option>
+                {getAllCategory.map((category,index) => (
+                    <option key={index}>{category.category}</option>
                 ))}
             </select>
         </div>

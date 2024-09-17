@@ -14,10 +14,6 @@ function CreateCategory () {
   const [thumbnail, setthumbnail] = useState();
   const [category, setCategory] = useState('');
 
-  useEffect(() => {
-    console.log(category)
-  }, [category])
-
   const uploadImage = () => {
     if (!thumbnail) return;
     const imageRef = ref(storage, `categoryImage/${thumbnail.name}`);

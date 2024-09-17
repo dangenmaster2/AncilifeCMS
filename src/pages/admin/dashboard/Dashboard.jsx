@@ -71,6 +71,19 @@ function Dashboard() {
                                     </Button>
                                 </div>
                             </Link>
+                            <Link to={'/createQuote'}>
+                                <div className="mb-2">
+                                    <Button
+                                        style={{
+                                            background: mode === 'dark' ? 'rgb(226, 232, 240)' : 'rgb(30, 41, 59)',
+                                            color: mode === 'dark' ? 'black' : 'white',
+                                        }}
+                                        className="px-8 py-2"
+                                    >
+                                        Create Quote
+                                    </Button>
+                                </div>
+                            </Link>
                             <div className="mb-2">
                                 <Button
                                     onClick={logout}
