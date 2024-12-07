@@ -69,8 +69,6 @@ function CreateBlog() {
     }
 
     const [text, settext] = useState('');
-    console.log("Value: ", );
-    console.log("text: ", text);
 
     //* Create markup function 
     function createMarkup(c) {
@@ -198,7 +196,7 @@ function CreateBlog() {
                     apiKey='9jo3lu73p1xbfqaw6jvgmsbrmy7qr907nqeafe1wbek6os9d'
                     onEditorChange={(newValue, editor) => {
                         setBlogs({ ...blogs, content: newValue });
-                        settext(editor.getContent({ format: 'text' }));
+                        settext(editor.getContent({ format: 'text' })); 
                     }}
                     onInit={(evt, editor) => {
                         settext(editor.getContent({ format: 'text' }));

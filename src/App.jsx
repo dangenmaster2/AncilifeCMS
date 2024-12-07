@@ -16,6 +16,8 @@ import CreateBlog from "./pages/admin/createBlog/CreateBlog";
 import { Toaster } from "react-hot-toast";
 import CreateCategory from "./pages/admin/createCategories/CreateCategories";
 import CreateQuote from "./pages/admin/createQuote/CreateQuote";
+import CreateMeditation from "./pages/admin/createMeditation/CreateMeditation";
+import CreateMeditationLessons from "./pages/admin/createMeditationLessons/CreateMeditationLessons";
 
 function App() {
   return (
@@ -46,6 +48,16 @@ function App() {
           <Route path="/createQuote" element={
             <ProtectedRouteForAdmin>
               <CreateQuote />
+            </ProtectedRouteForAdmin>
+          } />
+          <Route path="/createMeditation" element={
+            <ProtectedRouteForAdmin>
+              <CreateMeditation />
+            </ProtectedRouteForAdmin>
+          } />
+          <Route path="/createMeditationLessons" element={
+            <ProtectedRouteForAdmin>
+              <CreateMeditationLessons />
             </ProtectedRouteForAdmin>
           } />
           <Route path="/*" element={<NoPage />} />

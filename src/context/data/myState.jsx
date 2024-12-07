@@ -28,6 +28,8 @@ function MyState(props) {
 
     const [getAllCategory, setGetAllCategory] = useState([]);
 
+    const [getMeditaionType, setGetAllMeditationType] = useState([])
+
     //* getAllBlogs Function
     function getAllBlogs() {
         setloading(true);
@@ -43,7 +45,6 @@ function MyState(props) {
                 });
 
                 setGetAllBlog(blogArray)
-                console.log(blogArray)
                 setloading(false)
             });
             return () => data;
@@ -67,8 +68,30 @@ function MyState(props) {
                 });
 
                 setGetAllCategory(categoriesArray)
-                console.log(categoriesArray)
                 setloading(false)
+            });
+            return () => data;
+        } catch (error) {
+            console.log(error)
+            setloading(false)
+        }
+    }
+
+    function getAllMeditationType () {
+        setloading(true);
+        try {
+            const q = query(
+                collection(fireDb, "availableMeditations")
+            );
+            const data = onSnapshot(q, (QuerySnapshot) => {
+                let meditationArray = [];
+                QuerySnapshot.forEach((doc) => {
+                    meditationArray.push({ ...doc.data(), id: doc.id });
+                });
+
+                setGetAllMeditationType(meditationArray[0]?.availableMeditations);
+                console.log('meditations available ',meditationArray);
+                setloading(false);
             });
             return () => data;
         } catch (error) {
@@ -80,6 +103,7 @@ function MyState(props) {
     useEffect(() => {
         getAllBlogs();
         getAllCategories();
+        getAllMeditationType();
     }, []);
 
     // Blog Delete Function 
@@ -102,6 +126,7 @@ function MyState(props) {
             setloading,
             getAllBlog,
             getAllCategory,
+            getMeditaionType,
             deleteBlogs
         }}>
             {props.children}
